@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'fibres/index'
-
+  get 'fibres/index' => 'fibres#index'
+  root 'fibres#index'
   resources :projects
   devise_for :users
   devise_for :admins
