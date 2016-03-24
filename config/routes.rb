@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root 'fibres#index'
   resources :projects
   devise_for :users
-  devise_for :admins
+  devise_for :admins, controllers: {
+        sessions: 'admins/sessions'
+      }
+
   devise_for :superadmins
   mount RailsAdmin::Engine => '/superadmin', as: 'rails_admin'
   
