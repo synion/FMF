@@ -1,5 +1,9 @@
-<h1>New Project</h1>
+	<% if  current_admin %>
+	<h1>New Project</h1>
+	<%= render 'form' %>
+ 	<% else current_user %>
+ 	<% end %>
 
-<%= render 'form' %>
+
 
 <%= link_to 'Back', projects_path %>
