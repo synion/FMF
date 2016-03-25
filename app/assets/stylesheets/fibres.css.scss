@@ -7,14 +7,24 @@
 @gray-light:   lighten(#000, 46.7%); // #777
 @gray-lighter: lighten(#000, 93.5%); // #eee
 body {
-background-image: image-url("pandora.jpg");
-padding: 50px;
+	background: image-url("pandora.jpg") no-repeat ;
+	padding: 50px;
+	background-position: 50% 0
 }
 
 .text {
-    
-    
-    text-align:center;
-    
-    color: white;
+    text-align: center;
+	vertical-align: middle;
+	line-height: 90px;
+   	color: white;
+}
+
+.login {
+	background-color:white;
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	border-radius: 15px 50px;
+	text-align: center;
+    margin: 0 auto; 
 }

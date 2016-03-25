@@ -5,11 +5,6 @@ class Admin < ActiveRecord::Base
         :recoverable, :rememberable, :trackable, :validatable
         has_many :users
         belongs_to :superadmin
-
-         rails_admin do
-    		configure :superadmin do
-      			label 'Own this admin '
-    		end
-  		end
+  		
 
 end

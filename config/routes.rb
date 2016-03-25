@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   get 'fibres/index' => 'fibres#index'
   root 'fibres#index'
-  resources :projects
-  devise_for :users
-  devise_for :admins, controllers: {
-        sessions: 'admins/sessions'
-      }
+  resources   :projects
+  devise_for  :users
+  devise_for  :admins, controllers: {
+                sessions: 'admin/sessions'
+              }
+  devise_for  :superadmins
 
-  devise_for :superadmins
   mount RailsAdmin::Engine => '/superadmin', as: 'rails_admin'
   
   # The priority is based upon order of creation: first created -> highest priority.
