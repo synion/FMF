@@ -3,8 +3,12 @@ class Admin < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   	devise :database_authenticatable, 
         :recoverable, :rememberable, :trackable, :validatable
-        has_many :users
         belongs_to :superadmin
+        has_many :projects
+
+       def to_s
+       		email
+       	end
   		
 
 end

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :projects do
+      member do
+        get :addusers
+      end
+  end
   get 'fibres/index' => 'fibres#index'
   root 'fibres#index'
   resources   :projects
