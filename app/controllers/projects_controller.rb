@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  
+  before_action :authenticate_admin!, only: [:edit, :update, :new, :create, :destroy, :show]
+  before_action :find_project_by_admin, only: [:edit, :update, :new, :create, :destroy, :show]
+ 
   # GET /projects
   # GET /projects.json
   def addusers
@@ -81,5 +83,8 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(:name, :admin_id)
     end
 
-    
+     def find_project_by_admin
+        @project = current_admin.projects.find(params[:id])
+     end
+     
 end
