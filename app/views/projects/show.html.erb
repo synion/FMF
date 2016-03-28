@@ -1,14 +1,40 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+	    <div class="col-md-4 col-md-offset-4">
+	    	<div class="project_add">
+				<p>
+				  <strong>Name:</strong>
+				  <%= @project.name %>
+				</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+				<p>
+				  <strong>Admin:</strong>
+				  <%= @project.admin %>
+				</p>
 
-<p>
-  <strong>Admin:</strong>
-  <%= @project.admin %>
-</p>
+				<p>
+				<table>
+				  <thead>
+				    <tr>
+				      <th>Id</th>
+				      <th>Email</th>
+				      <th colspan="3"></th>
+				    </tr>
+				  </thead>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+				  <tbody>
+				    <% @users.each do |user| %>
+				      <tr>
+				        <td><%= user.id %></td>
+				        <td><%= user.email %></td>
+				      </tr>
+				      <% end %>
+				  </tbody>
+				</table>    
+				</p>
+
+				<%= link_to 'Edit', edit_project_path(@project) %> |
+				<%= link_to 'Back', projects_path %>
+			</div>
+		</div>
+</div>

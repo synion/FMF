@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  resources :projects do
-      member do
-        get :addusers
-      end
-  end
+  
   get 'fibres/index' => 'fibres#index'
   root 'fibres#index'
-  resources   :projects
+  resources   :projects do
+        member do
+          get :addusers
+        end
+  end
   devise_for  :users
   devise_for  :admins, controllers: {
                 sessions: 'admin/sessions'

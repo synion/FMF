@@ -1,12 +1,11 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!, only: [:edit, :update, :new, :create, :destroy, :show]
-  before_action :find_project_by_admin, only: [:edit, :update, :new, :create, :destroy, :show]
- 
+  before_action :authenticate_admin!, only: [:edit, :update, :new, :create, :destroy, :index]
+  before_action :find_project_by_admin, only: [:edit, :update, :destroy]
   # GET /projects
   # GET /projects.json
   def addusers
-      @project = Project.find(params[:id])
+      project = Project.find(params[:id])
       @project.users << User.find(params[:user_id])
       respond_to do |format|
         format.html { redirect_to project, :notice => 'Added.' }
@@ -14,12 +13,13 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all
+    @projects = current_admin.projects.all
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @users = @project.users.all
   end
 
   # GET /projects/new
@@ -83,8 +83,11 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(:name, :admin_id)
     end
 
-     def find_project_by_admin
+      def find_project_by_admin
         @project = current_admin.projects.find(params[:id])
-     end
+      end
+
+     
+    
      
 end
