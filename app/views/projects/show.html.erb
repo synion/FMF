@@ -11,7 +11,7 @@
 				  <strong>Admin:</strong>
 				  <%= @project.admin %>
 				</p>
-
+				<% if current_admin %>
 				<p>
 				<table>
 				  <thead>
@@ -21,16 +21,9 @@
 				      <th colspan="3"></th>
 				    </tr>
 				  </thead>
-					
-  						<% @users.each do |user| %>
-
-    						<%= user.email %> <%= link_to 'Add friend', addusers_project_path(@project, user_id: user.id) %><br />
+  							<% @users.each do |user| %>
+								<%= user.email %> <%= link_to 'Add friend', addusers_project_path(@project, user_id: user.id) %><br />
     						<% end %>
-    						
-  						
-				  	
-   					
-					
 				  <tbody>
 				    <% @usersadd.each do |user| %>
 				      <tr>
@@ -43,9 +36,10 @@
 				  </tbody>
 				</table>    
 				</p>
-
 				<%= link_to 'Edit', edit_project_path(@project) %> |
 				<%= link_to 'Back', projects_path %>
+				<% end %>
+				
 			</div>
 		</div>
 </div>
