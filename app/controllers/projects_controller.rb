@@ -5,12 +5,28 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def addusers
-      project = Project.find(params[:id])
+      @project = Project.find(params[:id])
       @project.users << User.find(params[:user_id])
       respond_to do |format|
-        format.html { redirect_to project, :notice => 'Added.' }
+        format.html { redirect_to @project, :notice => 'Added.' }
       end
   end
+
+  def removeuser
+  
+      @project = Project.find(params[:id])
+      @user = User.find(params[:user_id])
+
+      if @user
+         @project.users.delete(@user)
+      end
+
+      respond_to do |format|
+        format.html { redirect_to @project, notice: 'User was successfully removed from Project' }
+      end
+  end
+
+
 
   def index
     @projects = current_admin.projects.all
@@ -19,7 +35,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @users = @project.users.all
+    @users = User.where(project_id: nil)
+    @usersadd = @project.users.all
   end
 
   # GET /projects/new
@@ -80,7 +97,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :admin_id)
+      params.require(:project).permit(:name, :admin_id, users_attributes: [:id, :email])
     end
 
       def find_project_by_admin

@@ -21,14 +21,25 @@
 				      <th colspan="3"></th>
 				    </tr>
 				  </thead>
+					
+  						<% @users.each do |user| %>
 
+    						<%= user.email %> <%= link_to 'Add friend', addusers_project_path(@project, user_id: user.id) %><br />
+    						<% end %>
+    						
+  						
+				  	
+   					
+					
 				  <tbody>
-				    <% @users.each do |user| %>
+				    <% @usersadd.each do |user| %>
 				      <tr>
 				        <td><%= user.id %></td>
 				        <td><%= user.email %></td>
+				        <td><%= link_to 'Remove user',  removeuser_project_path(@project, user_id: user.id) %></td>
 				      </tr>
 				      <% end %>
+
 				  </tbody>
 				</table>    
 				</p>
