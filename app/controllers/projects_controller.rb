@@ -2,6 +2,9 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, only: [:edit, :update, :new, :create, :destroy, :index]
   before_action :find_project_by_admin, only: [:edit, :update, :destroy]
+  
+ 
+  
   # GET /projects
   # GET /projects.json
   def addusers
@@ -42,6 +45,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+        switchgear = @project.switchgear.build
   end
 
   # GET /projects/1/edit
@@ -51,6 +55,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    byebug
     @project = Project.new(project_params)
     @project.admin = current_admin
 
@@ -97,7 +102,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :admin_id, users_attributes: [:id, :email])
+      params.require(:project).permit(:name, :admin_id, users_attributes: [:id, :email], switchgear_attributes: [:id, :name])
     end
 
       def find_project_by_admin

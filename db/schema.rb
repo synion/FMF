@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326160304) do
+ActiveRecord::Schema.define(version: 20160330171818) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20160326160304) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+
+  create_table "otdfs", force: :cascade do |t|
+    t.string   "type"
+    t.string   "direct"
+    t.integer  "switchgear_fiber_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "otdfs", ["switchgear_fiber_id"], name: "index_otdfs_on_switchgear_fiber_id"
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -57,6 +67,15 @@ ActiveRecord::Schema.define(version: 20160326160304) do
 
   add_index "superadmins", ["email"], name: "index_superadmins_on_email", unique: true
   add_index "superadmins", ["reset_password_token"], name: "index_superadmins_on_reset_password_token", unique: true
+
+  create_table "switchgears", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "switchgears", ["project_id"], name: "index_switchgears_on_project_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

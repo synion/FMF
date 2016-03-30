@@ -15,8 +15,23 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  
+
+
+
+
+
+  <div class="field">
+  <%= f.fields_for :switchgear do |builder| %>
+    <%= render "switchgear_field", :f => builder %>
+  <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+
+
+
+
+
