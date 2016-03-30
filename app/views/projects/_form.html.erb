@@ -16,16 +16,16 @@
     <%= f.text_field :name %>
   </div>
 
-
-
-
-
   <div class="field">
   <%= f.fields_for :switchgear do |builder| %>
-    <%= render "switchgear_field", :f => builder %>
+    <%= render "switchgear_field", f: builder %>
   <% end %>
+  
+
+  <%= link_to_add_switchgears "Add Field", f, :switchgear %>
   </div>
   <div class="actions">
+    
     <%= f.submit %>
   </div>
 <% end %>

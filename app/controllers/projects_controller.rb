@@ -55,7 +55,6 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    byebug
     @project = Project.new(project_params)
     @project.admin = current_admin
 
