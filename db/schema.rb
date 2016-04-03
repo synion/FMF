@@ -90,11 +90,9 @@ ActiveRecord::Schema.define(version: 20160330171818) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "admin_id"
     t.integer  "project_id"
   end
 
-  add_index "users", ["admin_id"], name: "index_users_on_admin_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["project_id"], name: "index_users_on_project_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

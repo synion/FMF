@@ -1,3 +1,3 @@
 class Otdf < ActiveRecord::Base
-  belongs_to :switchgear_fiber
+  belongs_to :switchgear
 end
