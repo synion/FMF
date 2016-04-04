@@ -17,10 +17,10 @@
   </div>
 
   <div class="field">
-  <%= f.fields_for :switchgear do |builder| %>
+  <%= f.fields_for :switchgears do |builder| %>
     <%= render "switchgear_field", f: builder %>
   <% end %>
-  <%= link_to_add_switchgears "Add Switchgear", f, :switchgears %>
+ 
   </div>
   <div class="actions">
     
