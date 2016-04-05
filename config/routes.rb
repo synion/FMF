@@ -1,7 +1,9 @@
-Rails.application.routes.draw do
-  
-  get 'fibres/index' => 'fibres#index'
-  root 'fibres#index'
+Rails.application.routes.draw do 
+  root 'find_my_fibre#index'
+
+  resources :switchgears, only: (:show)
+  resources :otdfs, only: (:show)
+  resources :fibres
   resources   :projects do
         member do
           get :addusers

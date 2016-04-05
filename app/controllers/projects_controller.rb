@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def addusers
-      @project = Project.find(params[:id])
+      @project = set_project
       @project.users << User.find(params[:user_id])
       respond_to do |format|
         format.html { redirect_to @project, :notice => 'Added.' }
@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   end
 
   def removeuser
-      @project = Project.find(params[:id])
+      @project = set_project
       @user = User.find(params[:user_id])
 
       if @user

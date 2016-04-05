@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403145957) do
+ActiveRecord::Schema.define(version: 20160405165834) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -31,15 +31,28 @@ ActiveRecord::Schema.define(version: 20160403145957) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
-  create_table "otdfs", force: :cascade do |t|
-    t.string   "type"
-    t.string   "direct"
-    t.integer  "switchgear_fiber_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+  create_table "fibres", force: :cascade do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "f_color"
+    t.integer  "otdf_id"
+    t.integer  "number_in_otdf"
+    t.string   "address"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
-  add_index "otdfs", ["switchgear_fiber_id"], name: "index_otdfs_on_switchgear_fiber_id"
+  add_index "fibres", ["otdf_id"], name: "index_fibres_on_otdf_id"
+
+  create_table "otdfs", force: :cascade do |t|
+    t.integer  "size"
+    t.string   "direct"
+    t.integer  "switchgear_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "otdfs", ["switchgear_id"], name: "index_otdfs_on_switchgear_id"
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"

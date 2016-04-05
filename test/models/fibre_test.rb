@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FibresControllerTest < ActionController::TestCase
+class FibreTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
