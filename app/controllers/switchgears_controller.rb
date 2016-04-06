@@ -6,9 +6,5 @@ class SwitchgearsController < ApplicationController
 
 
 
-  private
-
-  def project_params
-      params.require(:project).permit(:description, :project_id, otdfs_attributes: [:id, :type, :direct])
-    end
+  
 end

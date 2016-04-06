@@ -1,12 +1,49 @@
-<div class="row">
-    <div class="col-md-4 col-md-offset-4">
-        <div class="project_add">
 
-			<h1>FindMyFibre</h1>
-			<p>This application is for passporting fiber-optic network  </p>
-			<p> If you want to access to creat you own network pleasa conntact me 
-			<a href="mailto:lach.szymon86@gmail.com">lach.szymon86@gmail.com</a>
-			</p>
+
+<% if current_admin %>
+	<div class="row">
+	    <div class="col-md-4 col-md-offset-4">
+	    	<div class="project_add">
+	    		<h2><%= link_to("Creat new Project",  new_project_path) %>  </h1>
+				<p> Creat your own passporting network</p>
+			</div>
 		</div>
-	</div> 
-</div>
+	</div>
+	<div class="row">
+	    <div class="col-md-4 col-md-offset-4">
+	    	<div class="project_add">
+	    		<h2><%= link_to("Show my Projects",  projects_path) %>  </h1>
+				<p> See all Project what i`m created</p>
+			</div>
+		</div>
+	</div>
+
+
+<% elsif current_user %>
+	<div class="row">
+	    <div class="col-md-4 col-md-offset-4">
+	    	<div class="project_add">
+	    		<% if current_user.project_id.present? %>	
+	    			<h2><%= link_to("Creat new Project",  project_path(id: current_user.project.id)) %>  </h1>
+					<p> Creat your own passporting network</p>
+				<% else %>
+					<p> Ask Admin who you know to add you to project </p>
+				<% end %>
+			</div>
+		</div>
+	</div>
+<% else %>
+
+	<div class="row">
+	    <div class="col-md-4 col-md-offset-4">
+	        <div class="project_add">
+
+				<h1>FindMyFibre</h1>
+				<p>This application is for passporting fiber-optic network  </p>
+				<p> If you want to access to creat you own network pleasa conntact me 
+				<a href="mailto:lach.szymon86@gmail.com">lach.szymon86@gmail.com</a>
+				</p>
+			</div>
+		</div> 
+	</div>
+<% end %>

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'find_my_fibre#index'
 
   resources :switchgears, only: (:show)
-  resources :otdfs, only: (:show)
-  resources :fibres
+  resources :otdfs, except: (:index)
+  resources :fibres, except: (:index)
   resources   :projects do
         member do
           get :addusers

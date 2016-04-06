@@ -1,0 +1,21 @@
+<%= form_for(@otdf) do |f| %>
+  
+
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.number_field :size %>
+  </div>
+
+  <div class="field">
+    <%= f.label :direct %><br>
+    <%= f.select(:direct, options_for_select([[:SW],  [:S], [:SE], [:N],[:NE],[:NW]])) %></br></br>
+
+  </div>
+    <%= f.hidden_field :switchgear_id%>
+ 
+  </div>
+  <div class="actions">
+    
+    <%= f.submit %>
+  </div>
+<% end %>

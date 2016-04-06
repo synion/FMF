@@ -1,5 +1,22 @@
-<% @otdfs.each do |otdf| %>
-<%= otdf.size %>
-<%= otdf.direct %>
-<% end %>
-<!-- %#= link_to("", "url" , :optsions) %> -->
+<div class="row">
+	    
+
+				<% @otdfs.each do |otdf| %>
+					<div class="col-md-6">
+	    			<div class="project_add">
+					<p> 
+						Otdf size 
+						<%= otdf.size %><br />
+						Otdf direct 
+						<%= otdf.direct %><br />
+						<%= link_to("See Otdf" , otdf) %><br />
+						<%= link_to 'Edit', edit_otdf_path(otdf) %><br />
+                    	<%= link_to 'Destroy', otdf, method: :delete, data: { confirm: 'Are you sure?' } %>
+						</p>
+						</div>
+					</div> 
+				<% end %>
+				<%= link_to 'Add new OTDF', new_otdf_path(switchgear_id: @switchgear.id) %>
+
+			
+</div>
