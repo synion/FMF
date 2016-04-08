@@ -8,12 +8,23 @@
 <div class="row">
 	<% @fibres.each do |fibre| %>
 		<div class="col-md-1">
-			<p>
-			Number fibre
-			<%= fibre.number_in_otdf %>
-			Color
-			<%= fibre.f_color %>
-			</p>
+			<div class="project_add">
+				<p>
+				Number fibre
+				<%= fibre.number_in_otdf %>
+				Color
+				<%= fibre.f_color %>
+				</p>
+				<%= link_to("Fibre" , fibre) %><br />
+				<%= link_to 'Edit', edit_fibre_path(fibre) %><br />
+                 <%= link_to 'Destroy', fibre, method: :delete, data: { confirm: 'Are you sure?' } %>
+			</div>
+		</div>
+		<div class="col-md-1">
+		<div class="project_add">
+		
+		 	<%= link_to 'Add new Fibres', new_fibre_path(otdf_id: @otdf.id) %>
+		 </div>
 		</div>
 	<% end %>
 </div>		

@@ -3,7 +3,8 @@ class FibresController < ApplicationController
 
 
 	def show
-  	end
+    set_fibre
+  end
 
   # GET /projects/new
   def new
@@ -12,11 +13,13 @@ class FibresController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    set_fibre
   end
 
   # POST /projects
   # POST /projects.json
   def create
+    byebug
     @fibre = Fibre.new(fibre_params)
     respond_to do |format|
       if @fibre.save
@@ -53,11 +56,13 @@ class FibresController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
    
     # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
+    def fibre_params
       params.require(:fibre).permit(:latitude, :longitude, :f_color, :otdf_id, :number_in_otdf, :address)
     end
 
-     
+     def set_fibre
+        @fibre = Fibre.find(params[:id])
+     end
 
      
     
@@ -65,4 +70,4 @@ class FibresController < ApplicationController
 end
 
 
-end
+
