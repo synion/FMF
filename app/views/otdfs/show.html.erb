@@ -2,7 +2,18 @@
 	    <div class="col-md-6 col-md-offset-3">
 	    	<div class="project_add">
 				Direct:  <%= @otdf.direct %>
-				<%= link_to 'Destroy', @otdf, method: :delete, data: { confirm: 'Are you sure?' } %>
 			</div>
 		</div>
 </div>
+<div class="row">
+	<% @fibres.each do |fibre| %>
+		<div class="col-md-1">
+			<p>
+			Number fibre
+			<%= fibre.number_in_otdf %>
+			Color
+			<%= fibre.f_color %>
+			</p>
+		</div>
+	<% end %>
+</div>		

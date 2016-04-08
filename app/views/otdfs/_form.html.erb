@@ -11,7 +11,7 @@
     <%= f.select(:direct, options_for_select([[:SW],  [:S], [:SE], [:N],[:NE],[:NW]])) %></br></br>
 
   </div>
-    <%= f.hidden_field :switchgear_id%>
+  <%= f.hidden_field "switchgear", switchgear:  params[:id] %>
  
   </div>
   <div class="actions">

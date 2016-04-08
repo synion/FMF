@@ -1,11 +1,11 @@
 class OtdfsController < ApplicationController
 	def show
 		@otdf = Otdf.find(params[:id])
+		@fibres = @otdf.fibres.all
 	end
 
 	def new
 		@otdf = Otdf.new
-		@switchgear = params[:switchgear_id]
 	end
 
 	def edit
@@ -14,6 +14,7 @@ class OtdfsController < ApplicationController
 
 	def create 
 		@otdf = Otdf.new(otdf_params)
+
 		respond_to do |format|
 	      	if @otdf.save
 	        	format.html { redirect_to @otdf, notice: 'Success.' }
@@ -24,6 +25,7 @@ class OtdfsController < ApplicationController
 	end
 
 	def update 
+		@otdf = Otdf.find(otdf_params, params(:id))
 		respond_to do |format|
 	      	if @otdf.update
 	        	format.html { redirect_to @otdf, notice: 'Success.' }
@@ -42,6 +44,6 @@ class OtdfsController < ApplicationController
 	end	
 	private
 	def otdf_params
-		params.require(:otdf).permit(:direct, :size, :switchgear_id)
+		params.require(:otdf).permit(:direct, :size, :switchgear_id, switchgear: [:id])
 	end	
 end
