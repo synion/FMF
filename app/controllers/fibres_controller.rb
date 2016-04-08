@@ -9,6 +9,7 @@ class FibresController < ApplicationController
   # GET /projects/new
   def new
     @fibre = Fibre.new
+    @fibre.otdf_id = params[:otdf_id]
   end
 
   # GET /projects/1/edit
@@ -19,11 +20,11 @@ class FibresController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    byebug
-    @fibre = Fibre.new(fibre_params)
+    otdf = Otdf.find(params[:otdf_id])
+    @fibre = otdf.fibres.create(fibre_params)
     respond_to do |format|
       if @fibre.save
-        format.html { redirect_to @fibre, notice: 'Fibre was successfully created.' }
+        format.html { redirect_to otdf, notice: 'Fibre was successfully created.' }
       else
         format.html { render :new }
       end
@@ -33,9 +34,11 @@ class FibresController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+     otdf = Otdf.find(params[:otdf_id])
+    @fibre = otdf.fibres.create(fibre_params)
     respond_to do |format|
       if @fibre.update(fibre_params)
-        format.html { redirect_to @fibre, notice: 'Fibre was successfully updated.' }
+        format.html { redirect_to otdf, notice: 'Fibre was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -45,10 +48,11 @@ class FibresController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    set_fibre
     @fibre.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'fibre was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to (otdf_fibres_url)}
+      
     end
   end
 
@@ -61,7 +65,8 @@ class FibresController < ApplicationController
     end
 
      def set_fibre
-        @fibre = Fibre.find(params[:id])
+        otdf = Otdf.find(params[:otdf_id])
+        @fibre = otdf.fibres.find(params[:id])
      end
 
      

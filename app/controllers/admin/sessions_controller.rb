@@ -1,5 +1,5 @@
 class Admin::SessionsController < Devise::SessionsController
-# before_filter :configure_sign_in_params, only: [:create]
+before_filter :logout_user, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -22,4 +22,8 @@ class Admin::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.for(:sign_in) << :attribute
   # end
+
+    def logout_user
+      sign_out :admin
+    end
 end

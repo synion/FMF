@@ -15,16 +15,18 @@
 				Color
 				<%= fibre.f_color %>
 				</p>
-				<%= link_to("Fibre" , fibre) %><br />
-				<%= link_to 'Edit', edit_fibre_path(fibre) %><br />
-                 <%= link_to 'Destroy', fibre, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<%= link_to("Fibre" , otdf_fibre_path(fibre.otdf, fibre)) %><br />
+				<%= link_to 'Edit', edit_otdf_fibre_path(fibre.otdf, fibre) %><br />
+				<%= link_to 'Destroy', [fibre.otdf, fibre], :confirm => 'Are you sure?', :method => :delete %>
+                 <%#= link_to 'Destroy', fibre, method: :delete, data: { confirm: 'Are you sure?' } %>
 			</div>
 		</div>
+		<% end %>
 		<div class="col-md-1">
 		<div class="project_add">
 		
-		 	<%= link_to 'Add new Fibres', new_fibre_path(otdf_id: @otdf.id) %>
+		 	<%= link_to 'Add new Fibres', new_otdf_fibre_path(@otdf, @fibre) %>
 		 </div>
 		</div>
-	<% end %>
+	
 </div>		
