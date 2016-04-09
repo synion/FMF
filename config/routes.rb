@@ -1,17 +1,16 @@
 Rails.application.routes.draw do 
   root 'find_my_fibre#index'
 
-  resources :otdfs, except: (:index) do
-            resources :fibres, except: (:index)
-  end
-  resources :switchgears, only: (:show)
-
   resources   :projects do
-                 
-        member do
-          get :addusers
-          get :removeuser
-        end
+    resources :switchgears, only: (:show) do 
+      resources :otdfs, except: (:index) do 
+        resources :fibres, except: (:index)
+      end
+    end     
+    member do
+      get :addusers
+      get :removeuser
+    end
   end
   devise_for  :users
   devise_for  :admins, controllers: {

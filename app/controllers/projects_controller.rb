@@ -39,6 +39,7 @@ class ProjectsController < ApplicationController
   def show
     @users = User.where(project_id: nil)
     @usersadd = @project.users.all
+    @switchgears = @project.switchgears.all
   end
 
   # GET /projects/new
