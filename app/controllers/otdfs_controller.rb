@@ -14,7 +14,6 @@ class OtdfsController < ApplicationController
 
 	def create 
 		@otdf = Otdf.new(otdf_params)
-
 		respond_to do |format|
 	      	if @otdf.save
 	        	format.html { redirect_to @otdf, notice: 'Success.' }

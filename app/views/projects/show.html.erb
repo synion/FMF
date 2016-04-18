@@ -59,7 +59,6 @@
 					    <% @switchgears.each do |switchgear| %>
 					      	<tr>
 					        	<td><%= switchgear.description %></td>
-					      	
 					      		<td><%= link_to("Show" , project_switchgear_path(switchgear.project, switchgear)) %></td>
 								<td><%= link_to 'Destroy', [switchgear.project, switchgear], :confirm => 'Are you sure?', :method => :delete %></td>
 							</tr>

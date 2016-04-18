@@ -1,7 +1,7 @@
 class CreateSwitchgears < ActiveRecord::Migration
   def change
     create_table :switchgears do |t|
-      t.references :project, index: true, foreign_key: true
+      t.integer :project_id
       t.text :description
 
       t.timestamps null: false

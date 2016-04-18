@@ -17,7 +17,7 @@
 				</p>
 				<%= link_to("Fibre" , otdf_fibre_path(fibre.otdf, fibre)) %><br />
 				<%= link_to 'Edit', edit_otdf_fibre_path(fibre.otdf, fibre) %><br />
-				<%= link_to 'Destroy', [fibre.otdf, fibre], :confirm => 'Are you sure?', :method => :delete %>
+				<%= link_to 'Destroy', [Otdf.fibres[params:[:fibre_id]]], :confirm => 'Are you sure?', :method => :delete %>
                  <%#= link_to 'Destroy', fibre, method: :delete, data: { confirm: 'Are you sure?' } %>
 			</div>
 		</div>

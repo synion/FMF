@@ -45,8 +45,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
-    @project.switchgears.build
-    
+      @project.switchgears.build 
   end
 
   # GET /projects/1/edit
@@ -56,8 +55,8 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    byebug
     @project = Project.new(project_params)
-    @project.switchgears.build
     @project.admin = current_admin
     respond_to do |format|
       if @project.save
@@ -102,9 +101,8 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :admin_id, users_attributes: [:id, :email], 
-                                                        switchgears_attributes: [:id, :description, :_destroy])
-    end
+      params.require(:project).permit(:name, :admin_id, switchgears_attributes:[:id, :description,:_destroy])
+    end                                                
 
       def find_project_by_admin
         @project = current_admin.projects.find(params[:id])
