@@ -2,6 +2,7 @@ class SwitchgearsController < ApplicationController
   def show
   	@switchgear = Switchgear.find(params[:id])
  	@otdfs = @switchgear.otdfs.all
+ 	@project = params[:project_id]
   end
 
   def destroy

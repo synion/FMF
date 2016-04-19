@@ -16,6 +16,7 @@
   <%= f.fields_for :switchgears do |builder| %>
     <%= render "switchgear_fields", f: builder %>
   <% end %>
+  <%= link_to_add_switchgears "Add switchgears", f, :switchgears %> 
   <div class="actions">
     <%= f.submit %>
   </div>

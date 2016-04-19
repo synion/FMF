@@ -2,7 +2,7 @@
 	    
 
 	<% @otdfs.each do |otdf| %>
-		<div class="col-md-6">
+		<div class="col-md-8">
 			<div class="project_add">
 				<p> 
 					Otdf size 
@@ -16,7 +16,7 @@
 			</div>
 		</div> 
 	<% end %>
-	<%= link_to 'Add new OTDF', new_project_switchgear_otdf_path(@switchgears, @otdf) %>
+	<%= link_to 'Add new OTDF', new_project_switchgear_otdf_path(@project, @switchgear) %>
 
 			
 </div>
