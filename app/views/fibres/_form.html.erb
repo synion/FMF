@@ -1,6 +1,6 @@
 
 
-<%= form_for ([@fibre.otdf,@fibre])  do |f| %>
+<%= form_for [@project,@switchgear,@otdf, @fibre]  do |f| %>
 	<div class="field">
 		<%= f.label :number_in_otdf %>
 		<%= f.number_field :number_in_otdf %>
@@ -13,11 +13,6 @@
 		<%= f.label :address %>
 		<%= f.text_field :address %>
 	</div>
-	<!-- <div class="field">
-		<%= f.label :otdf_id %>
-		<%= f.collection_select(:otdf_id, Otdf.all, :id, :direct) %>
-	</div> -->
-
 		
 	<div class="actions">
     	<%= f.submit %>

@@ -1,11 +1,15 @@
 class OtdfsController < ApplicationController
 	def show
+		@project = Project.find params[:project_id] 
+		@switchgear = Switchgear.find params[:switchgear_id]
 		set_otdf
 		@fibres = @otdf.fibres.all
 	end
 
 	def new
-		@otdf = Otdf.new
+		@project = Project.find params[:project_id] 
+		@switchgear = Switchgear.find params[:switchgear_id]
+		@otdf = Otdf.new(switchgear: @switchgear)
 	end
 
 	def edit
@@ -13,10 +17,12 @@ class OtdfsController < ApplicationController
 	end
 
 	def create 
+		@project = Project.find params[:project_id] 
+		@switchgear = Switchgear.find params[:switchgear_id]
 		@otdf = Otdf.new(otdf_params)
 		respond_to do |format|
 	      	if @otdf.save
-	        	format.html { redirect_to @otdf, notice: 'Success.' }
+	        	format.html { redirect_to [@project, @switchgear, @otdf], notice: 'Success.' }
 	      	else
 	        	format.html { render :new } 
 	    	end

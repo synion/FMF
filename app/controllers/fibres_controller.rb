@@ -8,8 +8,10 @@ class FibresController < ApplicationController
 
   # GET /projects/new
   def new
-    @fibre = Fibre.new
-    @fibre.otdf_id = params[:otdf_id]
+    @project = Project.find params[:project_id] 
+    @switchgear = Switchgear.find params[:switchgear_id]
+    @otdf = Otdf.find params[:otdf_id]
+    @fibre = Fibre.new(otdf: @otdf)
   end
 
   # GET /projects/1/edit

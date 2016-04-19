@@ -1,4 +1,4 @@
-<%= form_for [@otdf,@switchgear] do |f| %>
+<%= form_for [@project,@switchgear,@otdf] do |f| %>
   <div class="field">
 
   <div class="field">
@@ -9,9 +9,6 @@
   <div class="field">
     <%= f.label :direct %><br>
     <%= f.select(:direct, options_for_select([[:SW],  [:S], [:SE], [:N],[:NE],[:NW]])) %></br></br>
-
-  </div>
-  <%= f.hidden_field "switchgear", switchgear:  params[:id] %>
  
   </div>
   <div class="actions">
