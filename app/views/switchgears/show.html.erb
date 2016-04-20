@@ -9,9 +9,9 @@
 					<%= otdf.size %><br />
 					Otdf direct 
 					<%= otdf.direct %><br />
-					<%= link_to("See Otdf" , otdf) %><br />
-					<%= link_to 'Edit', edit_otdf_path(otdf) %><br />
-                    <%= link_to 'Destroy', otdf, method: :delete, data: { confirm: 'Are you sure?' } %>
+					<%= link_to "See Otdf" , project_switchgear_otdf_path(@project, @switchgear, otdf) %><br />
+					<%= link_to 'Edit', edit_project_switchgear_otdf_path(@project, @switchgear, otdf) %><br />
+                    <%= link_to 'Destroy', project_switchgear_otdf_path(@project, @switchgear, otdf), method: :delete, data: { confirm: 'Are you sure?' } %>
 				</p>
 			</div>
 		</div> 

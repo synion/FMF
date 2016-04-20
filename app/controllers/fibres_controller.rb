@@ -11,8 +11,8 @@ class FibresController < ApplicationController
     @project = Project.find params[:project_id] 
     @switchgear = Switchgear.find params[:switchgear_id]
     @otdf = Otdf.find params[:otdf_id]
-    @fibre = Fibre.new(otdf: @otdf)
-  end
+    @fibre = Fibre.new(otdf: @otdf
+)  end
 
   # GET /projects/1/edit
   def edit

@@ -20,6 +20,8 @@ class OtdfsController < ApplicationController
 		@project = Project.find params[:project_id] 
 		@switchgear = Switchgear.find params[:switchgear_id]
 		@otdf = Otdf.new(otdf_params)
+		@otdf.switchgear = @switchgear
+
 		respond_to do |format|
 	      	if @otdf.save
 	        	format.html { redirect_to [@project, @switchgear, @otdf], notice: 'Success.' }
@@ -42,14 +44,16 @@ class OtdfsController < ApplicationController
 
 	def destroy
 		set_otdf
+		@project = Project.find params[:project_id] 
+		@switchgear = Switchgear.find params[:switchgear_id]
 	    @otdf.destroy
 	    respond_to do |format|
-	      	format.html { redirect_to switchgear_path, notice: 'Otdf was successfully destroyed.' }
+	      	format.html { redirect_to project_switchgear_path(@project, @switchgear), notice: 'Otdf was successfully destroyed.' }
 	    end
 	end	
 	private
 	def otdf_params
-		params.require(:otdf).permit(:direct, :size, :switchgear_id, switchgear: [:id])
+		params.require(:otdf).permit(:direct, :size,  switchgear: [:switchgear_id])
 	end	
 
 	def set_otdf
