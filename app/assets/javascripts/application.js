@@ -15,14 +15,14 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
-$(document).on 'click', 'form .remove_switchgears', (event) ->
-	$(this).prev('input[type=hidden]').val('1')
-	$(this).closest('fieldser').hide()
-	event.preventDefault()
+// $(document).on 'click', 'form .remove_switchgears', (event) ->
+// 	$(this).prev('input[type=hidden]').val('1')
+// 	$(this).closest('fieldser').hide()
+// 	event.preventDefault()
 
-$(document).on 'click', 'form .add_switchgears', (event) ->
-	time = new Date().getTime()
-	regexp = new RegExp($(this).data('fields').replace(regexp, time))
-	event.preventDefault()
+// $(document).on 'click', 'form .add_switchgears', (event) ->
+// 	time = new Date().getTime()
+// 	regexp = new RegExp($(this).data('fields').replace(regexp, time))
+// 	event.preventDefault()
 
-	
+
