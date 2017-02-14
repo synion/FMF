@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'geocoder', '1.3'
 gem 'devise', '3.5.2'
-gem 'rails_admin', '0.8.1'
+gem 'rails_admin', '1.1.1'
 gem 'twitter-bootstrap-rails', '3.2'
 gem 'puma' , '3.7.0'
 
