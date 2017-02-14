@@ -95,6 +95,7 @@ GEM
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
+    pg (0.18.4)
     puma (3.7.0)
     rack (1.6.5)
     rack-pjax (0.8.0)
@@ -203,6 +204,7 @@ DEPENDENCIES
   geocoder (= 1.3)
   jbuilder (~> 2.0)
   jquery-rails
+  pg (~> 0.18.0.pre20141017160319)
   puma (= 3.7.0)
   rails (= 4.2.5)
   rails_12factor
