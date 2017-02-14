@@ -1,20 +1,17 @@
-
-
 <%= form_for [@project,@switchgear,@otdf, @fibre]  do |f| %>
-	<div class="field">
-		<%= f.label :number_in_otdf %>
-		<%= f.number_field :number_in_otdf %>
-	</div>
-	<div class="field">
-	    <%= f.label "What color it is" %><br>
-	    <%= f.select :f_color,  "<option>Red</option><option>Green</option><option>Blue</option><option>White</option><option>Purple</option><option>Orange</option><option>Gray</option><option>Yellow</option><option>Brown</option><option>Pink</option><option>Black</option><option>Turquoise</option>".html_safe, multiple: true%>
-	</div>
-	<div class="field">
-		<%= f.label :address %>
-		<%= f.text_field :address %>
-	</div>
-		
-	<div class="actions">
-    	<%= f.submit %>
- 	</div>
+  <div class="field">
+    <%= f.label :number_in_otdf %>
+    <%= f.number_field :number_in_otdf %>
+  </div>
+  <div class="field">
+    <%= f.label "What color it is" %><br>
+    <%= f.select :f_color,  "<option>Red</option><option>Green</option><option>Blue</option><option>White</option><option>Purple</option><option>Orange</option><option>Gray</option><option>Yellow</option><option>Brown</option><option>Pink</option><option>Black</option><option>Turquoise</option>".html_safe, multiple: true%>
+  </div>
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

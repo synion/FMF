@@ -1,71 +1,69 @@
 <div class="row">
-	    <div class="col-md-4 col-md-offset-4">
-	    	<div class="project_add">
-	    	<p id="notice"><%= notice %></p>
-
-				<p>
-				  <strong>Name:</strong>
-				  <%= @project.name %>
-				</p>
-
-				<p>
-				  <strong>Admin:</strong>
-				  <%= @project.admin %>
-				</p>
-				<% if current_admin %>
-			</div>
-		</div>
+  <div class="col-md-4 col-md-offset-4">
+    <div class="project_add">
+      <p id="notice"><%= notice %></p>
+      <p>
+      <strong>Name:</strong>
+      <%= @project.name %>
+      </p>
+      <p>
+      <strong>Admin:</strong>
+      <%= @project.admin %>
+      </p>
+    </div>
+  </div>
+</div>
+<% if current_admin %>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <div class="project_add">
+      <table><h1> User</h1>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <%= user.email %> <%= link_to 'Add user', addusers_project_path(@project, user_id: user.id) %><br />
+          <% end %>
+        </tbody>
+        <tbody>
+          <% @usersadd.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.email %></td>
+              <td><%= link_to 'Remove user',  removeuser_project_path(@project, user_id: user.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 <div class="row">
-	    <div class="col-md-4 col-md-offset-4">
-	    	<div class="project_add">
-				<table><h1> User</h1>
-				  <thead>
-				    	<tr>
-				      		<th>Id</th>
-				      		<th>Email</th>
-				      		<th colspan="3"></th>
-				    	</tr>
-				  	</thead>
-				  	<tbody>
-  						<% @users.each do |user| %>
-							<%= user.email %> <%= link_to 'Add friend', addusers_project_path(@project, user_id: user.id) %><br />
-    					<% end %>
-    				</tbody>
-				  	<tbody>
-					    <% @usersadd.each do |user| %>
-					      <tr>
-					        <td><%= user.id %></td>
-					        <td><%= user.email %></td>
-					        <td><%= link_to 'Remove user',  removeuser_project_path(@project, user_id: user.id) %></td>
-					      </tr>
-				    	<% end %>
-				    </tbody>
-				</table>
-			</div>
-		</div>
+  <div class="col-md-4 col-md-offset-4">
+    <div class="project_add">
+      <table><h1>Switchgear </h1>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @switchgears.each do |switchgear| %>
+            <tr>
+              <td><%= switchgear.description %></td>
+              <td><%= link_to("Show" , project_switchgear_path(switchgear.project, switchgear)) %></td>
+              <td><%= link_to 'Destroy', [switchgear.project, switchgear], :confirm => 'Are you sure?', :method => :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-<div class="row">
-	    <div class="col-md-4 col-md-offset-4">
-	    	<div class="project_add">
-	    		<table><h1>Switchgear </h1>
-	    			<thead>
-				    	<tr>
-				      		<th>Description</th>
-				      		<th colspan="3"></th>
-				    	</tr>
-				  	</thead>
-				    <tbody>
-					    <% @switchgears.each do |switchgear| %>
-					      	<tr>
-					        	<td><%= switchgear.description %></td>
-					      		<td><%= link_to("Show" , project_switchgear_path(switchgear.project, switchgear)) %></td>
-								<td><%= link_to 'Destroy', [switchgear.project, switchgear], :confirm => 'Are you sure?', :method => :delete %></td>
-							</tr>
-				    </tbody>   
-					<% end %>
-					<% end %>
-				</table>	
-			</div>
-		</div>
-</div>
+<% end %>

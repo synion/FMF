@@ -1,32 +1,29 @@
 <div class="row">
-	    <div class="col-md-6 col-md-offset-3">
-	    	<div class="project_add">
-				Direct:  <%= @otdf.direct %>
-			</div>
-		</div>
+  <div class="col-md-6 col-md-offset-3">
+    <div class="project_add">
+      Direct:  <%= @otdf.direct %>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<% @fibres.each do |fibre| %>
-		<div class="col-md-1">
-			<div class="project_add">
-				<p>
-				Number fibre
-				<%= fibre.number_in_otdf %>
-				Color
-				<%= fibre.f_color %>
-				</p>
-				<%= link_to("Fibre" , otdf_fibre_path(fibre.otdf, fibre)) %><br />
-				<%= link_to 'Edit', edit_otdf_fibre_path(fibre.otdf, fibre) %><br />
-				<%= link_to 'Destroy', [Otdf.fibres[params:[:fibre_id]]], :confirm => 'Are you sure?', :method => :delete %>
-                 <%#= link_to 'Destroy', fibre, method: :delete, data: { confirm: 'Are you sure?' } %>
-			</div>
-		</div>
-		<% end %>
-		<div class="col-md-1">
-		<div class="project_add">
-		
-		 	<%= link_to 'Add new Fibres', new_project_switchgear_otdf_fibre_path(@project, @switchgear, @otdf) %>
-		 </div>
-		</div>
-	
-</div>		
+  <% @fibres.each do |fibre| %>
+    <div class="col-md-1">
+      <div class="project_add">
+        <p>
+        Number fibre
+        <%= fibre.number_in_otdf %>
+        Color
+        <%= fibre.f_color %>
+        </p>
+        <%= link_to("Fibre" , otdf_fibre_path(fibre.otdf, fibre)) %><br />
+        <%= link_to 'Edit', edit_otdf_fibre_path(fibre.otdf, fibre) %><br />
+        <%= link_to 'Destroy', [Otdf.fibres[params:[:fibre_id]]], :confirm => 'Are you sure?', :method => :delete %>
+      </div>
+    </div>
+  <% end %>
+  <div class="col-md-1">
+  <div class="project_add">
+    <%= link_to 'Add new Fibres', new_project_switchgear_otdf_fibre_path(@project, @switchgear, @otdf) %>
+  </div>
+  </div>
+</div>

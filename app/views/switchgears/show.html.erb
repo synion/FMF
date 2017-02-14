@@ -1,22 +1,18 @@
 <div class="row">
-	    
-
-	<% @otdfs.each do |otdf| %>
-		<div class="col-md-8">
-			<div class="project_add">
-				<p> 
-					Otdf size 
-					<%= otdf.size %><br />
-					Otdf direct 
-					<%= otdf.direct %><br />
-					<%= link_to "See Otdf" , project_switchgear_otdf_path(@project, @switchgear, otdf) %><br />
-					<%= link_to 'Edit', edit_project_switchgear_otdf_path(@project, @switchgear, otdf) %><br />
-                    <%= link_to 'Destroy', project_switchgear_otdf_path(@project, @switchgear, otdf), method: :delete, data: { confirm: 'Are you sure?' } %>
-				</p>
-			</div>
-		</div> 
-	<% end %>
-	<%= link_to 'Add new OTDF', new_project_switchgear_otdf_path(@project, @switchgear) %>
-
-			
+  <% @otdfs.each do |otdf| %>
+    <div class="col-md-8">
+      <div class="project_add">
+        <p>
+        Otdf size
+        <%= otdf.size %><br />
+        Otdf direct
+        <%= otdf.direct %><br />
+        <%= link_to "See Otdf" , project_switchgear_otdf_path(@project, @switchgear, otdf) %><br />
+        <%= link_to 'Edit', edit_project_switchgear_otdf_path(@project, @switchgear, otdf) %><br />
+        <%= link_to 'Destroy', project_switchgear_otdf_path(@project, @switchgear, otdf), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to 'Add new OTDF', new_project_switchgear_otdf_path(@project, @switchgear) %>
 </div>
