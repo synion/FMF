@@ -1,6 +1,6 @@
 class FibresController < ApplicationController
 
-	def show
+  def show
     set_fibre
   end
 

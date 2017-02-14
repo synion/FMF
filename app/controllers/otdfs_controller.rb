@@ -23,32 +23,32 @@ class OtdfsController < ApplicationController
 		@otdf = Otdf.new(otdf_params)
 		@otdf.switchgear = @switchgear
 		respond_to do |format|
-	    if @otdf.save
-	      format.html { redirect_to [@project, @switchgear, @otdf], notice: 'Success.' }
-	    else
-	      format.html { render :new }
-	    end
+	   	if @otdf.save
+	     	format.html { redirect_to [@project, @switchgear, @otdf], notice: 'Success.' }
+	   	else
+	     	format.html { render :new }
+	   	end
    	end
 	end
 
 	def update
 		respond_to do |format|
-	    if @otdf.update
-	      format.html { redirect_to @otdf, notice: 'Success.' }
-	    else
-	      format.html { render :new }
-	    end
-    end
-	end
+	   	if @otdf.update
+	    	format.html { redirect_to @otdf, notice: 'Success.' }
+	  	else
+	    	format.html { render :new }
+	  	end
+  	end
+  end
 
 	def destroy
 		set_otdf
 		@project = Project.find params[:project_id]
 		@switchgear = Switchgear.find params[:switchgear_id]
-	  @otdf.destroy
-	    respond_to do |format|
-	      format.html { redirect_to project_switchgear_path(@project, @switchgear), notice: 'Otdf was successfully destroyed.' }
-	  end
+		@otdf.destroy
+	  	respond_to do |format|
+	    	format.html { redirect_to project_switchgear_path(@project, @switchgear), notice: 'Otdf was successfully destroyed.' }
+		end
 	end
 
 	private
