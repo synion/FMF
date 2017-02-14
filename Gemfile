@@ -18,7 +18,7 @@ gem 'geocoder', '1.3'
 gem 'devise', '3.5.2'
 gem 'rails_admin', '0.8.1'
 gem 'twitter-bootstrap-rails', '3.2'
-
+gem 'puma' , '3.7.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -37,7 +37,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'rails_12factor', group: :production
+gem 'pg' '1.5', group: :production
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
