@@ -1,27 +1,23 @@
-Rails.application.routes.draw do 
+Rails.application.routes.draw do
   root 'find_my_fibre#index'
 
-  
- 
   resources   :projects  do
     resources :switchgears do
-      resources :otdfs, except: (:index) do 
+      resources :otdfs, except: (:index) do
           resources :fibres, except: (:index)
       end
-    end       
+    end
     member do
       get :addusers
       get :removeuser
     end
   end
-  devise_for  :users
-  devise_for  :admins, controllers: {
-                sessions: 'admin/sessions'
-              }
-  devise_for  :superadmins
 
+  devise_for  :users
+  devise_for  :admins, controllers: { sessions: 'admin/sessions' }
+  devise_for  :superadmins
   mount RailsAdmin::Engine => '/superadmin', as: 'rails_admin'
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
